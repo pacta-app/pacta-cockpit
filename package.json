@@ -25,6 +25,7 @@
   "eslintConfig": {
     "extends": "react-app"
   },
+  "homepage" : "https://pacta-app.github.io/pacta-cockpit",
   "browserslist": {
     "production": [
       ">0.2%",
