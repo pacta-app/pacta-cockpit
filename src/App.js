@@ -1,26 +1,23 @@
+// in src/App.js
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Admin, Resource } from 'react-admin';
+import jsonServerProvider from 'ra-data-json-server';
+import { UserList } from './users';
+import { TestList } from './test';
+import Dashboard from './Dashboard';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
+
+const App = () => (
+  <Admin
+    title="Pacta Stats & More"
+    dashboard={Dashboard} 
+    dataProvider={dataProvider}
+    logoutButton={<div>&nbsp;</div>}
+  >
+    <Resource name="tests" list={TestList} />
+    <Resource name="users" list={UserList} />
+  </Admin>
+);
 
 export default App;
