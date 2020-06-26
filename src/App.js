@@ -8,6 +8,7 @@ import { TestList } from './test';
 import Dashboard from './Dashboard';
 import buildQuery from './buildQuery.json';
 // const dataProvider = jsonServerProvider('http://jsonplaceholder.typicode.com');
+import superDataProvider from './dataProviderFactory';
 
 class App extends Component {
   constructor() {
@@ -33,7 +34,7 @@ class App extends Component {
       <Admin
       title="Pacta Stats"
       dashboard={Dashboard} 
-      dataProvider={dataProvider}
+      dataProvider={superDataProvider}
       logoutButton={<div>&nbsp;</div>}
     >
       <Resource name="tests" list={TestList} />
